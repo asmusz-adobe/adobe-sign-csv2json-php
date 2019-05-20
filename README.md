@@ -24,7 +24,7 @@ POST - URL `https://yourserver.yourdomain.com/formDataJson.php`
 }
 ```
 ### Response Example
-In the example below there are 2 signers, each of which has a row in the CSV response from Adobe Sign. There are 7 params that are defaults returnd on all agreements. 
+In the example below there are 2 signers, each of which has a row in the CSV response from Adobe Sign. There are 7 params that are defaults returnd on all agreements. There is an ordinal "id" corresponding to the row for each signer.
 *  completed
 *  email
 *  role
