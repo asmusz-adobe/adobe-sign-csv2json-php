@@ -14,9 +14,10 @@ Once you have this script installed on your php server you can POST to the page 
 
 POST - URL https://yourserver.yourdomain.com/formDataJson.php
 
-`{
+```JSON
+{
 	"agreement_id": "{{Adobe Sign agreement ID}}",
 	"token": "{{integration key or oAuth access token}}",
-	"sender_email": "{{"sender" email address}}",
+	"sender_email": "{{'sender' email address}}",
 	"shard": "{{Geo shared where account is on Adobe Sign}}"
-}`
+}```
