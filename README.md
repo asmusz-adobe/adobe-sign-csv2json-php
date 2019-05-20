@@ -24,7 +24,9 @@ POST - URL `https://yourserver.yourdomain.com/formDataJson.php`
 }
 ```
 ### Response Example
+In the example below there are 2 signers, each of which has a row in the CSV response from Adobe Sign. There are 6 params that are defaults returnd on all agreements.
 
+The remainder of the data is from the "columns" in the CSV corresponding to the fields on the form signed.
 ```JSON
 {
 	"completed": "2019-05-16 09:46:44",
