@@ -20,4 +20,4 @@ POST - URL https://yourserver.yourdomain.com/formDataJson.php
 	"token": "{{integration key or oAuth access token}}",
 	"sender_email": "{{'sender' email address}}",
 	"shard": "{{Geo shared where account is on Adobe Sign}}"
-}```
+}
