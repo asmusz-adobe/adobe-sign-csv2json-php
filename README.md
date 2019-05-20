@@ -14,7 +14,7 @@ Once you have this script installed on your php server you can POST to the page 
 
 POST - URL `https://yourserver.yourdomain.com/formDataJson.php`
 
-#### JSON Body
+##### JSON Body
 ```JSON
 {
 	"agreement_id": "{{Adobe Sign agreement ID}}",
@@ -23,4 +23,42 @@ POST - URL `https://yourserver.yourdomain.com/formDataJson.php`
 	"shard": "{{Geo shared where account is on Adobe Sign}}"
 }
 ```
-### Response
+### Response Example
+
+```JSON
+{
+	"completed": "2019-05-16 09:46:44",
+	"email": "echosmusz1+na2main@gmail.com",
+	"role": "SIGNER",
+	"first": "Samuel",
+	"last": "Tanenbaum",
+	"title": "CEO",
+	"company": "BBA Aviation",
+	"City": "",
+	"St": "",
+	"Zip": "",
+	"agreementId": "CBJCHBCAABAAyDrVXUPNP7q0_WsSl-Ch6OUFIeHzWJp1",
+	"city1": "uyt",
+	"city2": "",
+	"largeField2": "",
+	"street": "uyt",
+	"id": 0
+}, {
+	"completed": "2019-05-16 09:50:04",
+	"email": "echosmusz1+npssender2@gmail.com",
+	"role": "SIGNER",
+	"first": "Jack",
+	"last": "Johnsen",
+	"title": "",
+	"company": "BBA Aviation",
+	"City": "",
+	"St": "",
+	"Zip": "",
+	"agreementId": "CBJCHBCAABAAyDrVXUPNP7q0_WsSl-Ch6OUFIeHzWJp1",
+	"city1": "",
+	"city2": "Somewhere",
+	"largeField2": "",
+	"street": "",
+	"id": 1
+}
+```
