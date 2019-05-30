@@ -21,10 +21,12 @@ POST - URL `https://yourserver.yourdomain.com/formDataJson.php`
 ##### JSON Body
 ```JSON
 {
-	"agreement_id": "{{Adobe Sign agreement ID}}",
-	"token": "{{integration key or oAuth access token}}",
-	"sender_email": "{{'sender' email address}}",
-	"shard": "{{Geo 'shard' where account is on Adobe Sign}}"
+    "agreementInfo": {
+        "agreement_id": "{{your agreementID here}}",
+        "token": "{{your api token or integration key here}}",
+        "sender_email": "{{your x-api-user email address here}}",
+        "shard": "{{your account shard here}}"
+    }
 }
 ```
 ### Response Example
