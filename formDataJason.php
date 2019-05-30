@@ -88,7 +88,7 @@ elseif  // Check to see if non-cUrl error but still error from Adobe Sign
         
         // Set number of elements (minus 1 because we shift off the first row)
         $count = count($data) - 1;
-        echo $count;
+        //echo $count;
         
         //Use first row for names  
         $labels = array_shift($data);  
