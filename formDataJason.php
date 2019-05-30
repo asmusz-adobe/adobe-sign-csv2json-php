@@ -10,10 +10,10 @@ include './functions_1.php';
 $data = json_decode(file_get_contents('php://input'), true);
 
 //  Write data from POST to variables
-$agreement_id = $data['agreement_id'];
-$token = $data['token'];
-$email = $data['sender_email'];
-$shard = $data['shard'];
+$agreement_id = $data['agreementInfo']['agreement_id'];
+$token = $data['agreementInfo']['token'];
+$email = $data['agreementInfo']['sender_email'];
+$shard = $data['agreementInfo']['shard'];
 
 //  Start cUrl process -  Code from POSTMAN "php cUrl"
 $curl = curl_init();
@@ -55,7 +55,7 @@ if   // Check for cUrl error
 
 elseif  // Check to see if non-cUrl error but still error from Adobe Sign 
     ( 
-        strpos($response, 'agreementId') === false or
+        strpos($response, 'completed') === false or
         strpos($response, '"code":')
     ) 
 {
@@ -93,13 +93,12 @@ elseif  // Check to see if non-cUrl error but still error from Adobe Sign
         //Use first row for names  
         $labels = array_shift($data);  
         foreach ($labels as $label) {
-          $keys[] = $label;
+            $keys[] =  trim(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $label ),'"');
         }
-        
         // Add Ids, just in case we want them later
-        $keys[] = 'id';
+        $keys[] = 'row_id';
         for ($i = 0; $i < $count; $i++) {
-          $data[$i][] = $i;
+          $data[$i][] =  $i;
         }
           
         // Bring it all together
@@ -109,7 +108,10 @@ elseif  // Check to see if non-cUrl error but still error from Adobe Sign
         }
         // Print it out as JSON
         header('Content-type: application/json');
-        echo json_encode($newArray);
+        
+        $jsonstring = json_encode($newArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        
+        echo $jsonstring;
         // Next section to write .json file to directory for logging
         $new_json = prettyPrint( json_encode($newArray));
         $json_filename = $agreement_id . "_json_data.json";
